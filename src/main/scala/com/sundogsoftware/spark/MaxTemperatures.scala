@@ -11,7 +11,10 @@ object MaxTemperatures {
     val fields = line.split(",")
     val stationID = fields(0)
     val entryType = fields(2)
-    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
+
+//    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
+    // Celsius
+    val temperature = fields(3).toFloat * 0.1f
     (stationID, entryType, temperature)
   }
     /** Our main function where the action happens */
@@ -33,8 +36,9 @@ object MaxTemperatures {
     for (result <- results.sorted) {
        val station = result._1
        val temp = result._2
-       val formattedTemp = f"$temp%.2f F"
-       println(s"$station max temperature: $formattedTemp") 
+//       val formattedTemp = f"$temp%.2f F"
+       val formattedTemp = f"$temp%.2f C"
+       println(s"$station max temperature: $formattedTemp")
     }
       
   }

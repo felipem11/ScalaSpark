@@ -11,7 +11,8 @@ object MinTemperatures {
     val fields = line.split(",")
     val stationID = fields(0)
     val entryType = fields(2)
-    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
+//    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
+    val temperature = fields(3).toFloat * 0.1f
     (stationID, entryType, temperature)
   }
     /** Our main function where the action happens */
@@ -21,7 +22,7 @@ object MinTemperatures {
     Logger.getLogger("org").setLevel(Level.ERROR)
     
     // Create a SparkContext using every core of the local machine
-    val sc = new SparkContext("local[*]", "MinTemperatures")
+    val sc = new SparkContext("local[*]", appName = "MinTemperatures")
     
     // Read each line of input data
     val lines = sc.textFile("data/1800.csv")
@@ -44,8 +45,9 @@ object MinTemperatures {
     for (result <- results.sorted) {
        val station = result._1
        val temp = result._2
-       val formattedTemp = f"$temp%.2f F"
-       println(s"$station minimum temperature: $formattedTemp") 
+//       val formattedTemp = f"$temp%.2f F"
+       val formattedTemp = f"$temp%.2f C"
+       println(s"$station minimum temperature: $formattedTemp")
     }
       
   }
