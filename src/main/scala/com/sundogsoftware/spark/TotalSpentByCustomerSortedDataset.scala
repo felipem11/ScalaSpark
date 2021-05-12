@@ -41,6 +41,12 @@ object TotalSpentByCustomerSortedDataset {
       .agg(round(sum("amount_spent"), 2)
         .alias("total_spent"))
 
+    // test Felipe 
+    val totalByCustomer2 = customerDS
+      .groupBy("cust_id")
+      .agg(sum("amount_spent")
+        .alias("total_spent2"))
+
     val totalByCustomerSorted = totalByCustomer.sort("total_spent")
     
     totalByCustomerSorted.show(totalByCustomer.count.toInt)
