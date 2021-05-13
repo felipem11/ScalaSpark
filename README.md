@@ -7,3 +7,6 @@ Execute using Spark environment instead by Intellij
 
 Downloaded from:
 - https://www.apache.org/dyn/closer.lua/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+
+Sources of files e.g -> ratings.dat <br>
+https://files.grouplens.org/datasets/movielens/ml-1m-README.txt
