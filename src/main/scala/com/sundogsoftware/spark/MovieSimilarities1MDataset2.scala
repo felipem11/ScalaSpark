@@ -10,7 +10,7 @@ import org.apache.spark.sql.types.{IntegerType, LongType, StringType, StructType
 // aws s3 cp s3://sundog-spark/ml-1m/movies.dat ./
 // spark-submit --executor-memory 1g MovieSimilarities1M.jar 260
 
-object MovieSimilarities1MDataset {
+object MovieSimilarities1MDataset2 {
 
   case class Movies(userID: Int, movieID: Int, rating: Int, timestamp: Long)
   case class MoviesNames(movieID: Int, movieTitle: String)

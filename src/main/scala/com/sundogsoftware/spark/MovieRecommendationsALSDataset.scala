@@ -7,6 +7,7 @@ import org.apache.spark.sql.types.{IntegerType, LongType, StringType, StructType
 
 import scala.collection.mutable
 
+// set parameter 0 to getuser id 881250949
 object MovieRecommendationsALSDataset {
 
   case class MoviesNames(movieId: Int, movieTitle: String)
